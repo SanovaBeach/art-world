@@ -1,0 +1,52 @@
+.Contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  &__records {
+    font-size: 2rem;
+    color: $color-grey-dark;
+    margin-bottom: 4rem;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: masonry;
+    grid-auto-flow: dense;
+    grid-gap: 1rem;
+
+    &--container {
+      width: 100%;
+      margin: 1rem;
+    }
+
+    &--img {
+      width: 100%;
+      transition: .5s;
+
+      &:hover {
+        transform: scale(.98);
+        border: 5px solid $peach-puff;
+      }
+    }
+
+    &--title {
+      color: $color-grey-dark-3;
+      margin-bottom: 5px;
+      font-size: 1.8rem;
+    }
+
+    &--class {
+      color: $color-grey-dark-2;
+      font-size: 1.6rem;
+    }
+    &--object {
+      color: $color-grey-dark;
+      font-size: 1.7rem;
+    }
+  }
+
+ 
+}

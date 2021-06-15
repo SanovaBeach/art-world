@@ -1,0 +1,50 @@
+.SingleData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem;
+  background-color: $color-grey-light-2;
+  flex-direction: column;
+
+  &__img {
+    width: 70rem;
+    max-width: 70rem;
+    height: 40rem;
+    object-fit: contain;
+  }
+
+  &__copy {
+    font-size: 1.3rem;
+    color: $color-grey-dark-3;
+    margin-top: 2rem;
+  }
+
+  &__infos {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    width: 100%;
+    padding-top: 4rem;
+
+    &--identification {
+      font-size: 2.4rem;
+      font-family: 'Viaoda Libre', cursive;
+    }
+  }
+
+  &__info {
+    font-size: 2rem;
+    margin-left: 2rem;
+    text-align: left;
+
+    &--title {
+      color: $color-grey-dark-2;
+      margin-bottom: 5px;
+    }
+
+    &--desc {
+      margin-bottom: 2.4rem;
+      color: #212121;
+    }
+  }
+}
+

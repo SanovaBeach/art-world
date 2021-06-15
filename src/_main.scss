@@ -1,0 +1,19 @@
+// base styles
+@import "styles/base";
+@import "styles/typography";
+@import "styles/variables";
+
+// components
+@import "components/Navbar/navbar";
+@import "components/Loading/loading";
+
+// HomePage
+@import "components/HomePage/header";
+@import "components/HomePage/info";
+// collectionPage
+@import "components/CollectionPage/collections";
+@import "components/CollectionPage/contents";
+@import "components/CollectionPage/submenu";
+
+// single collection page
+@import "components/SinglePage/singleData";

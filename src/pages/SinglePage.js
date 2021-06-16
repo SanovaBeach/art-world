@@ -2,7 +2,8 @@ import React from 'react'
 import {SingleData} from '../components'
 
 const SinglePage = () => {
-  document.title = 'Art World'
+  document.title = "la Galerie d'Or"
+
 
   return (
     <React.Fragment>

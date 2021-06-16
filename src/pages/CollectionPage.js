@@ -1,14 +1,14 @@
 import React from 'react'
-import {Collections, Contents} from '../components'
+import {Collections, Navbar} from '../components'
 
 const CollectionPage = () => {
-  document.title = 'Art World | Collections'
+  document.title = 'la Galerie d\'Or | Collections'
   
 
   return (
     <React.Fragment>
+      <Navbar />
       <Collections />
-      <Contents />
     </React.Fragment>
   )
 }

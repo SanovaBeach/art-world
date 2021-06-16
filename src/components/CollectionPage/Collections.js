@@ -2,21 +2,19 @@ import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {filterDataAsync} from '../../redux/collectionSlice'
 
+import Contents from './Contents'
 
 
 const Collections = () => {
   const [search, setSearch] = useState('')
-  const {searchInput} = useSelector((state) => state.collections)
+
   const dispatch = useDispatch()
   const filters = ['Classification', 'Work Type', 'Technique/Medium', 'Period', 'Place', 'Century', 'Culture', 'Gallery']
 
-  function handleSearch(e) {
-    setSearch(e.target.value)
+  function handleSearch(event) {
+    if(event.key === 'Enter')
+      dispatch(filterDataAsync(search))
   }
-
-  useEffect(()=> {
-    dispatch(filterDataAsync(search))
-  }, [search])
 
 
   return (
@@ -28,7 +26,8 @@ const Collections = () => {
           className='Collections__search' 
           placeholder='Search by keyworld, title, artist.'
           value={search}
-          onChange={handleSearch}
+          onChange={(event) => setSearch(event.target.value)}
+          onKeyPress={handleSearch}
         />
         <div className="Collections__filters">
           {filters.map((filter, index)=> (
@@ -42,6 +41,7 @@ const Collections = () => {
         </div>
         <hr className='hline' />
       </div>
+      <Contents search={search} />
       
     </React.Fragment>
   )

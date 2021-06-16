@@ -8,35 +8,25 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import Loading from '../Loading/Loading';
 
 
-const Contents = () => {
+const Contents = ({search}) => {
   const [size, setSize] = useState(0)
   const [page, setPage] = useState(1)
 
   const dispatch = useDispatch();
-  const { collections, loading, info, searchInput, } = useSelector(
+  const { collections, loading, info} = useSelector(
     (state) => state.collections
   );
 
   useEffect(() => {
     dispatch(getCollectionsAsync());
-  }, [dispatch, searchInput]);
+  }, [dispatch]);
 
-  if(searchInput) {
-    dispatch(filterDataAsync(searchInput))
-  }
-
-  if(loading) {
-    return <Loading />
-  }
-  if(info === undefined) {
+  if(loading || info === undefined) {
     return <Loading />
   }
 
-
-  console.log('searchInput', searchInput);
 
   async function getMoreData() {
-    
     setSize(size+15)
     setPage(page + 1)
     dispatch(fetchMore(size, page))
@@ -44,17 +34,17 @@ const Contents = () => {
   }
 
   async function getQueryData() {
-   setSize(size + 15)
-      setPage(page + 1)
-      dispatch(fetchMoreWithQuery(size, page, searchInput)) 
-      console.log('query data')
+    setSize(size + 15)
+    setPage(page + 1)
+    dispatch(fetchMoreWithQuery(search, size, page)) 
+    console.log('search data')
   }
 
   return (
     <React.Fragment>
     <InfiniteScroll
       dataLength={collections?.length}
-      next={searchInput ? getQueryData : getMoreData}
+      next={search ? getQueryData :getMoreData}
       hasMore={true}
       loader={<Loading className='inline-loading' />}
     >

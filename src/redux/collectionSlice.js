@@ -39,17 +39,6 @@ export const fetchMore = createAsyncThunk(
     return {data, info}
   }
 )
-// 
-export const fetchMoreWithQuery = createAsyncThunk(
-  'collections/fetchMore',
-  async (size, page, query) => {
-    const response = await axios.get(`${baseUrl}object?q=${query}&size=${size}&page=${page}&sort=rank&apikey=${apiKey}`)
-    const data = response.data.records
-    const info = response.data.info
-    return {data, info, query}
-
-  }
-)
 
 // filtering data
 
@@ -59,9 +48,22 @@ export const filterDataAsync = createAsyncThunk(
     const response = await axios.get(`https://api.harvardartmuseums.org/object?q=${query}&size=30&apikey=${apiKey}`)
     const data = response.data.records
     const info = response.data.info
-    console.log('filter data working')
-    console.log('info', response.data)
+    console.log(data)
+    console.log('filterDataAsync')
     return {data, info}
+  }
+)
+
+// get more items based on query 
+export const fetchMoreWithQuery = createAsyncThunk(
+  'collections/fetchMore',
+  async (query, size, page) => {
+    const response = await axios.get(`${baseUrl}object?q=${query}&size=${size}&page=${page}&sort=rank&apikey=${apiKey}`)
+    const data = response.data.records
+    // const info = response.data.info
+    console.log('fetchMorewithquery slice')
+    return {data}
+
   }
 )
 
@@ -75,8 +77,6 @@ const collectionSlice = createSlice({
     page: '',
     loading: true,
     info: {},
-    searchInput:'',
-    filterData: []
   },
   reducers: {},
   extraReducers: {
@@ -90,8 +90,8 @@ const collectionSlice = createSlice({
       state.loading = false
     },
     [fetchMore.fulfilled]: (state, action) => {
-       state.collections = action.payload.data
-       // action.collections = action.payload.data
+       // state.collections = action.payload.data
+      return [...state, ...action.payload.data]
     },
     [getSingleData.pending]: (state) => {
       state.loading = true
@@ -104,13 +104,16 @@ const collectionSlice = createSlice({
       state.loading = true
     },
     [filterDataAsync.fulfilled]: (state, action) => {
-      state.loading = false
       state.collections = action.payload.data
       state.info = action.payload.info
-      state.searchInput = action.payload.query
+      state.query = action.payload.query
+      state.loading = false
     },
     [fetchMoreWithQuery.fulfilled]: (state, action) => {
-      state.collections = action.payload.data
+      state.loading = true
+    },
+    [fetchMoreWithQuery.fulfilled]: (state, action) => {
+      state.collections = [...state.collections, action.payload.data]
     }
   }
 })

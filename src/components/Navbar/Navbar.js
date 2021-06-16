@@ -20,7 +20,7 @@ const Navbar = () => {
             </li>
             <li className='Navbar__nav--item'>
               <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
-                <h1 className="Navbar__logo">ArtWorld</h1>
+                <h1 className="Navbar__logo">la Galerie d'Or</h1>
               </Link>
             </li>
             <li className="Navbar__nav--item">

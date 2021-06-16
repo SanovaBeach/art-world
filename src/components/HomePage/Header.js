@@ -10,10 +10,10 @@ const Header = () => {
             WELCOME
           </h1>
           <p className="Header__contents--title">
-            TO THE
+            TO 
           </p>
           <p className="Header__contents--title">
-            ART WORLD
+            la Galerie d'Or
           </p>
           </div>
         </div>

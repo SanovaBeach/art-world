@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import {Footer} from './components'
+import ScrollToTop from './components/ScrollToTop'
 // pages
 import HomePage from './pages/HomePage'
 import CollectionPage from './pages/CollectionPage'
@@ -13,6 +14,7 @@ import AboutPage from './pages/AboutPage'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route exact path='/learn' component={LearnPage} />

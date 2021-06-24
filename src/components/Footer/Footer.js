@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {FaFacebook, FaTwitter, FaLinkedin} from 'react-icons/fa'
 
 const Footer = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   return (
     <React.Fragment>
       <div className="Footer">
@@ -37,13 +35,13 @@ const Footer = () => {
               Thanks to harvard <a href="https://harvardartmuseums.org/" className="Footer__side--link">Harvard Art Museums </a>
                for providing the API.
             </p>
-          <a href="#" className='Footer_-side--link'>
+          <a href="https://facebook.com" className='Footer__side--link'>
             <FaFacebook className='Footer__side--icon'/>
           </a>
-          <a href="#" className='Footer_-side--link'>
+          <a href="https://twitter.com" className='Footer__side--link'>
             <FaTwitter className='Footer__side--icon'/>
           </a>
-          <a href="#" className='Footer_-side--link'>
+          <a href="https://linkedin.com" className='Footer__side--link'>
             <FaLinkedin className='Footer__side--icon'/>
           </a>
           </div>

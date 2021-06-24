@@ -1,0 +1,29 @@
+.LearnHeader {
+  padding: 8rem;
+  background-color: $manatee;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__heading {
+    font-size: 3rem;
+    margin-top: 2rem;
+  }
+
+  
+
+  &__image {
+    width: 100%;
+    height: 35rem;
+  }
+  &__desc {
+    font-size: 2.4rem;
+    line-height: 1.4;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0 5rem;
+  }
+}

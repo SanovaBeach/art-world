@@ -22,7 +22,7 @@ const Contents = ({search}) => {
   }, [dispatch]);
 
   if(loading || info === undefined) {
-    return <Loading />
+    return <Loading className='inline-loading' />
   }
 
 

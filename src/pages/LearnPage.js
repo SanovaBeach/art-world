@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Info} from '../components'
+import {Navbar, Info, LearnHeader} from '../components'
 import {learnInfo, learnInfo2, learnInfo3, learnInfo4} from './LearnInfo'
 
 const LearnPage = () => {
@@ -7,6 +7,7 @@ const LearnPage = () => {
   return (
     <React.Fragment>
       <Navbar />
+      <LearnHeader />
       <Info {...learnInfo} />
       <Info {...learnInfo2} />
       <Info {...learnInfo3} />

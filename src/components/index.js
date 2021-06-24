@@ -9,3 +9,6 @@ export {default as Info} from './HomePage/Info'
 export {default as Collections} from './CollectionPage/Collections'
 export {default as Contents} from './CollectionPage/Contents'
 export {default as SingleData} from './SinglePage/SingleData'
+// learn page
+
+export {default as LearnHeader} from './LearnPage/LearnHeader' 

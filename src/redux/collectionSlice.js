@@ -91,7 +91,7 @@ const collectionSlice = createSlice({
     },
     [fetchMore.fulfilled]: (state, action) => {
        // state.collections = action.payload.data
-      return [...state, ...action.payload.data]
+      state.collections = action.payload.data
     },
     [getSingleData.pending]: (state) => {
       state.loading = true
@@ -113,7 +113,7 @@ const collectionSlice = createSlice({
       state.loading = true
     },
     [fetchMoreWithQuery.fulfilled]: (state, action) => {
-      state.collections = [...state.collections, action.payload.data]
+      state.collections = action.payload.data
     }
   }
 })

@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {filterDataAsync} from '../../redux/collectionSlice'
 
 import Contents from './Contents'
-
+import Submenu from './Submenu'
 
 const Collections = () => {
   const [search, setSearch] = useState('')
@@ -39,6 +39,7 @@ const Collections = () => {
             </button>
           ))}
         </div>
+        <Submenu />
         <hr className='hline' />
       </div>
       <Contents search={search} />
